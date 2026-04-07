@@ -1,12 +1,12 @@
 import pandas as pd
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.ensemble import RandomForestClassifier
 import duckdb
+from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
+from sklearn.metrics import confusion_matrix
 
 titanic = pd.read_csv("data.csv")
 
@@ -134,7 +134,6 @@ pipe.fit(X_train, y_train)
 rdmf_score = pipe.score(X_test, y_test)
 rdmf_score_tr = pipe.score(X_train, y_train)
 print(f"{rdmf_score:.1%} de bonnes réponses sur les données de test pour validation")
-from sklearn.metrics import confusion_matrix
 
 print(20 * "-")
 print("matrice de confusion")
