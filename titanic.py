@@ -11,22 +11,33 @@ from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
 
+import os
 import pandas as pd
 import duckdb
+import argparse
+from dotenv import load_dotenv
 
 
-N_TREES = 20
-MAX_DEPTH = None
-MAX_FEATURES = "sqrt"
-NUMERIC_FEATURES = ["Age", "Fare"]
-CATEGORICAL_FEATURES = ["Embarked", "Sex"]
+# Environmnent variables
+load_dotenv()
+jeton_api = os.environ["JETON_API"]
 
-JETON_API = "$trotskitueleski1917"
+MAX_DEPTH=None
+MAX_FEATURES="sqrt"
+NUMERIC_FEATURES=["Age", "Fare"]
+CATEGORICAL_FEATURES=["Embarked", "Sex"]
 
 con = duckdb.connect(database=":memory:")
 
 titanic = pd.read_csv("data.csv")
 
+# Import n_trees
+parser = argparse.ArgumentParser(description="Settings import")
+parser.add_argument(
+    "--ntrees", type=int, default=20, help="Number of trees to train"
+)
+args = parser.parse_args()
+N_TREES = args.ntrees
 
 # QUALITY DIAGNOSTICS  ---------------------------------------
 
