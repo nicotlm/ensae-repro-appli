@@ -1,13 +1,8 @@
-import pandas as pd ; import numpy as np
-import matplotlib.pyplot as plt
-import multiprocessing
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+import pandas as pd  
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
-import pathlib
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
-import time
-import os
 import duckdb
 
 # os.chdir('/home/coder/work/ensae-reproductibilite-application')
@@ -35,8 +30,6 @@ max_features='sqrt'
 
 
 ## Encoder les données imputées ou transformées.
-from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
@@ -124,7 +117,7 @@ print(message)
 
 # Random Forest
 
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
