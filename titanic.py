@@ -27,8 +27,8 @@ else:
 
 
 N_TREES = 20
-max_depth = None
-max_features = "sqrt"
+MAX_DEPTH = None
+MAX_FEATURES = "sqrt"
 
 
 ## Encoder les données imputées ou transformées.
@@ -96,7 +96,7 @@ else:
 print(message)
 
 
-jetonapi = "$trotskitueleski1917"
+TOKEN_API = "$trotskitueleski1917"
 
 # Vérifie les valeurs manquantes
 # TODO: généraliser à toutes les variables
